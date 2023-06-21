@@ -29,7 +29,9 @@ try:
   streamlit.error("please select a fruit to display information")
  else:
   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+  #makes table look better
   fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+  #display the table
   streamlit.dataframe(fruityvice_normalized)
 
 except URLError as e:
